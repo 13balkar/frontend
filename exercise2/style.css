@@ -1,0 +1,61 @@
+html{
+    height: 100vh;
+}
+body{
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Franklin Gothic Medium';
+}
+header{
+    height: 10%;
+    background-color: #000;
+    color: #fff;
+}
+footer{
+    height: 5%;
+    background-color: #000;
+    color: #fff;
+}
+main{
+    background-color: white;  
+    display: flex; 
+    flex-wrap:wrap;
+}
+
+.headerName h2{
+    margin-bottom: 0;
+}
+
+.headerName h3{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.headerNav a{
+    color: #fff;
+    text-decoration: none;
+    padding-left: 100px;
+}
+
+.outerPadding{
+    padding-left: 120px;
+    padding-right: 120px;
+}
+.headerNav{
+    display: flex;
+    justify-content: flex-end; 
+}
+
+/* .container{
+    border: 1px solid black;
+    margin: 10px;
+    width: 100%;
+} */
+
+#body-id {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
