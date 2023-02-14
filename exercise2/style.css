@@ -1,6 +1,7 @@
 html{
     height: 100vh;
 }
+
 body{
     height: 100%;
     margin: 0;
@@ -8,20 +9,11 @@ body{
     flex-direction: column;
     font-family: 'Franklin Gothic Medium';
 }
+
 header{
     height: 10%;
     background-color: #000;
     color: #fff;
-}
-footer{
-    height: 5%;
-    background-color: #000;
-    color: #fff;
-}
-main{
-    background-color: white;  
-    display: flex; 
-    flex-wrap:wrap;
 }
 
 .headerName h2{
@@ -37,25 +29,106 @@ main{
     color: #fff;
     text-decoration: none;
     padding-left: 100px;
+    padding-bottom: 10px;
 }
 
-.outerPadding{
-    padding-left: 120px;
-    padding-right: 120px;
-}
 .headerNav{
     display: flex;
     justify-content: flex-end; 
 }
 
-/* .container{
-    border: 1px solid black;
-    margin: 10px;
-    width: 100%;
-} */
+footer{
+    height: 5%;
+    background-color: #000;
+    color: #fff;
+}
 
 #body-id {
     display: flex;
     flex: 1;
     flex-direction: column;
 }
+
+main{
+    background-color: white;  
+    display: flex; 
+    flex-wrap:wrap;
+    height: 100%;
+    justify-content: space-between;
+}
+
+.outerPadding{
+    padding-left: 120px;
+    padding-right: 120px;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    width: 300px;
+    height: 440px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.container-img{
+    width: 100%;
+    height: 55%;
+    padding: 0;
+}
+
+.container-data{
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.container-data h3{
+    margin-top: 8px;
+    margin-bottom: 0;
+    font-size: 22px;
+    text-align: justify;
+    opacity: 0.9;
+}
+
+.container-data p{
+    margin-bottom: 0;
+    margin-top:8px;
+    font-size: 16px;
+    opacity: 0.6;
+    text-align: justify;
+}
+ 
+.container-data .container-feat{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.container-data hr{
+    margin-bottom: 0;
+    margin-top: 10px;
+    opacity: 0.6;
+    width: 100%;
+}
+
+.container-feat{
+    display: flex;
+    justify-content: space-between;
+}
+
+.container-feat img{
+    width: 20px;
+    height: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.reactions{
+    display: flex;
+    justify-content: space-between;
+    width: 40px;
+}
+
+
