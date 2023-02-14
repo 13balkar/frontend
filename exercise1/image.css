@@ -1,0 +1,152 @@
+
+
+.titleHeader{
+    color:white;
+    background-color: aqua;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.navHeader{
+    color:white;
+    background-color:black;
+    
+}
+
+.leftBlock{
+    background-color: lightgray;
+    width: 30%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
+}
+
+.rightBlock{
+    background-color:whitesmoke;
+    width: 70%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
+}
+
+.innerBlock{
+   height: 45%;
+}
+
+.img1{
+    display: flex;
+    justify-content: center;
+    height: 200px;
+    margin-left: 0;
+}
+
+.img2{
+    display: flex;
+    justify-content: center;
+    height: 70px;
+    padding: 10px;
+    padding-left: 0%;
+    
+}
+ 
+body{
+    margin: 0;
+}
+
+header{
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    height: 20%;
+}
+
+footer{
+    background-color:grey;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+    height: 10%;
+}
+
+main{
+    display: flex;
+    height: 70%;
+}
+
+li{
+    display:inline;
+    padding: 2px;
+}
+img{
+    width: 100%;
+}
+
+@media screen and (max-width: 600px) {
+    main{
+        flex-direction: column;
+    }
+    .left-block{
+        width: 100%;
+    }
+    .right-block{
+        width: 100%;
+    }
+    .img1{
+        height: 200px;
+    }
+    .img2{
+        height: 80px;
+    }
+    h1{
+        font-size: 20px;
+    }
+    p{
+        font-size: 16px;
+    }
+}
+
+@media screen and (min-width: 601px) and (max-width: 900px) { 
+    .img1{
+        height: 200px;
+    }
+    .img2{
+        height: 70px;
+    }
+    h1{
+        font-size: 22px;
+    }
+    p{
+        font-size: 18px;
+    }
+}
+
+@media screen and (min-width: 901px) and (max-width: 1200px) {
+    .img1{
+        height: 180px;
+    }
+    .img2{
+        height: 70px;
+    }
+    h1{
+        font-size: 24px;
+    }
+    p{
+        font-size: 18px;
+    }
+}
+
+
+@media screen and (min-width: 1201px) {
+    .img1{
+        height: 180px;
+    }
+    .img2{
+        height: 60px;
+    }
+    h1{
+        font-size: 24px;
+    }
+    p{
+        font-size: 18px;
+    }
+}
