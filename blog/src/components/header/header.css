@@ -1,0 +1,27 @@
+
+header {
+    height: 10%;
+    background-color: #000;
+    color: #fff;
+  }
+  
+  .headerName h2 {
+    margin-bottom: 0;
+  }
+  
+  .headerName h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  
+  .headerNav a {
+    color: #fff;
+    text-decoration: none;
+    padding-left: 100px;
+    padding-bottom: 10px;
+  }
+  
+  .headerNav {
+    display: flex;
+    justify-content: flex-end;
+  }

@@ -1,14 +1,11 @@
 {
     "env": {
         "browser": true,
-        "es2021": true,
-        "node": true,
-        "jest": true
+        "es2021": true
     },
     "extends": [
-        "eslint:recommended",
         "plugin:react/recommended",
-        "prettier"
+        "standard"
     ],
     "overrides": [
     ],
@@ -17,15 +14,18 @@
         "sourceType": "module"
     },
     "plugins": [
-        "react",
-        "prettier",
-        "react-hooks"
+        "react"
     ],
     "rules": {
-        // "react/react-in-jsx-scope": "off",
-        "camelcase": "error",
-        "spaced-comment": "error",
+        "semi": ["error", "always"],
         "quotes": ["error", "single"],
-        "no-duplicate-imports": "error"
-    }
+        "react/jsx-filename-extension": [1, {
+            "extensions": [".js", ".jsx"]}
+            ]
+    },
+    "settings": {
+        "react": {
+          "version": "detect"
+        }
+      }
 }
