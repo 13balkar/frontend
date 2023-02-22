@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot should render card correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="container"
+  >
+    <img
+      alt="abcd"
+      class="container-img"
+      src="abstract.png"
+    />
+    <div
+      class="container-data"
+    >
+      <div
+        class="container-feat"
+      >
+        <p>
+          29th June/2022
+        </p>
+        <p>
+          4 mins
+        </p>
+      </div>
+      <h3>
+        mock title 2
+      </h3>
+      <p>
+        mock description 2
+      </p>
+      <hr />
+    </div>
+    <div
+      class="container-data"
+    >
+      <div
+        class="container-feat"
+      >
+        <div
+          class="reactions"
+        >
+          <img
+            alt=""
+            src="/assets/Icons/clapping.svg"
+          />
+          <p>
+            12
+          </p>
+        </div>
+        <img
+          alt="like"
+          src="/assets/Icons/heart-red.svg"
+        />
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Snapshot should render card list correctly 1`] = `
+<DocumentFragment>
+  <h1>
+    Loading
+  </h1>
+</DocumentFragment>
+`;
