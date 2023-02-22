@@ -2,7 +2,7 @@ import React from 'react';
 import { Cards, Footer, Header } from '../../components';
 import './homepage.css';
 
-function App () {
+function Homepage () {
   return (
     <div className="app">
       <Header />
@@ -14,4 +14,4 @@ function App () {
   );
 }
 
-export default App;
+export default Homepage;

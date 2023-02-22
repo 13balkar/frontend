@@ -1,13 +1,29 @@
 import * as React from 'react';
-import data from '../../constants/data.json';
+import { GET_BLOG_POSTS } from '../../constants/apiEndPoints';
+import { makeRequest } from '../../utils';
 import Card from './card';
 
-export default function Cards () {
-  return (
-    <main className="outerPadding">
-      {data.map((post) => (
-        <Card key={Math.random()} post={post} />
+const Cards = () => {
+  const [blogs, setBlogs] = React.useState();
+  const [error, setError] = React.useState();
+  React.useEffect(() => {
+    makeRequest(GET_BLOG_POSTS)
+      .then(response => {
+        response.sort((a, b) => a.claps < b.claps ? 1 : -1);
+        setBlogs(response);
+      })
+      .catch(err => setError(err));
+  }, []);
+  if (error) { return <h1>Error</h1>; }
+  return blogs
+    ? (
+    <main className='outerPadding' data-testid='blog' >
+      {blogs.map((blog) => (
+        <Card key={Math.random()} post={blog} />
       ))}
     </main>
-  );
-}
+      )
+    : <h1>Loading</h1>;
+};
+
+export default Cards;

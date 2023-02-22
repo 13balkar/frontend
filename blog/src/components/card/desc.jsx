@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 import * as React from 'react';
-
+import { getFormattedDate } from '../../utils';
 export default function Description ({ date, time, title, description }) {
   return (
     <div className='container-data'>
       <div className='container-feat'>
-        <p>{date}</p>
+        <p>{getFormattedDate(date)}</p>
         <p>{time}</p>
       </div>
       <h3>{title}</h3>

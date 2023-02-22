@@ -14,7 +14,7 @@ export default function Reaction ({
           <img onClick={clapping} src="/assets/Icons/clapping.svg" alt="" />
           <p>{count}</p>
         </div>
-        <img onClick={liker} src={`/assets/Icons/${src}`} alt="" />
+        <img onClick={liker} src={`/assets/Icons/${src}`} alt="like" />
       </div>
     </div>
   );

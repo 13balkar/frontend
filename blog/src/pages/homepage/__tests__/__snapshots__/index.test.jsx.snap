@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home Page should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="app"
+  >
+    <header
+      class="outerPadding"
+    >
+      <div
+        class="headerName"
+      >
+        <h2>
+          The Artifact
+        </h2>
+        <h3>
+          <i>
+            Culture and Art Blog
+          </i>
+        </h3>
+      </div>
+      <nav
+        class="headerNav"
+      >
+        <a
+          href=""
+        >
+          Blog
+        </a>
+        <a
+          href=""
+        >
+          About
+        </a>
+        <a
+          href=""
+        >
+          Contact
+        </a>
+      </nav>
+    </header>
+    <h1>
+      Loading
+    </h1>
+    <footer
+      class="outerPadding"
+    >
+      <p>
+        ©artifact.com 2019
+      </p>
+    </footer>
+  </div>
+</DocumentFragment>
+`;

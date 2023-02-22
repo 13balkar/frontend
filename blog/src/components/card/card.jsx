@@ -1,5 +1,7 @@
 import { PropTypes } from 'prop-types';
 import * as React from 'react';
+import { UPDATE_BLOG_POST } from '../../constants/apiEndPoints';
+import { makeRequest } from '../../utils';
 import './card.css';
 import Description from './desc';
 import Image from './img';
@@ -8,6 +10,11 @@ import Reaction from './reactions';
 export default function Card ({ post }) {
   const [count, setCount] = React.useState(post.claps);
   const [like, setLike] = React.useState(post.liked);
+
+  React.useEffect(() => {
+    makeRequest(UPDATE_BLOG_POST(post.id), { data: { claps: count, liked: like } });
+  }, [count, like]);
+
   const clapping = () => {
     setCount(count + 1);
   };
@@ -16,10 +23,10 @@ export default function Card ({ post }) {
   };
   return (
     <div className="container">
-      <Image src={require(`../../assets/Images/${post.image}`)} alt={post.imgAlt} />
+      <Image src={post.image} alt='abcd' />
       <Description
         date={post.date}
-        time={post.readingTime}
+        time={post.reading_time}
         title={post.title}
         description={post.description}
       />
@@ -31,13 +38,13 @@ export default function Card ({ post }) {
 // write prop validation for post
 Card.propTypes = {
   post: PropTypes.shape({
+    id: PropTypes.number.isRequired,
     image: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
-    readingTime: PropTypes.isRequired,
+    reading_time: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     claps: PropTypes.number.isRequired,
-    liked: PropTypes.bool.isRequired,
-    imgAlt: PropTypes.string.isRequired
+    liked: PropTypes.bool.isRequired
   }).isRequired
 };

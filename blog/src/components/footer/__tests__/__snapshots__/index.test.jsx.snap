@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer should render correctly 1`] = `
+<DocumentFragment>
+  <footer
+    class="outerPadding"
+  >
+    <p>
+      ©artifact.com 2019
+    </p>
+  </footer>
+</DocumentFragment>
+`;
