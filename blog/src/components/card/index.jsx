@@ -1,11 +1,12 @@
 import * as React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { GET_BLOG_POSTS } from '../../constants/apiEndPoints';
+import { BlogPostContext } from '../../contexts/blogPostContext';
 import { makeRequest } from '../../utils';
 import Card from './card';
 const Cards = () => {
-  const { blogs, setBlogs } = React.useState();
-  const [error, setError] = React.useState();
+  const { blogs, setBlogs } = React.useContext(BlogPostContext);
+  const { error, setError } = React.useContext(BlogPostContext);
   const navigate = useNavigate();
   React.useEffect(() => {
     makeRequest(GET_BLOG_POSTS, {}, navigate)

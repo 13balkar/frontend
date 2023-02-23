@@ -1,11 +1,9 @@
 import PropTypes from 'prop-types';
 import * as React from 'react';
-
 export default function Reaction ({
   count, clapping, liker, liked
 }) {
-  const heartRed = 'heart-red.svg'; const
-    heartBlack = 'heart-black.svg';
+  const heartRed = 'heart-red.svg'; const heartBlack = 'heart-black.svg';
   const src = liked ? heartRed : heartBlack;
   return (
     <div className="container-data">

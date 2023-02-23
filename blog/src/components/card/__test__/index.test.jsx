@@ -1,6 +1,7 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import * as React from 'react';
 import Cards from '..';
+import { BlogPostProvider } from '../../../contexts/blogPostContext';
 import { makeRequest } from '../../../utils';
 import Card from '../card';
 import Reaction from '../reactions';
@@ -24,28 +25,28 @@ const mockData = {
 describe('Data Fetching', () => {
   it('should show loading when the data is being fetched', async () => {
     makeRequest.mockResolvedValue([mockData]);
-    render(<Cards />);
+    render(<BlogPostProvider><Cards /></BlogPostProvider>);
     await waitFor(() =>
       expect(screen.getByText('Loading')).toBeTruthy()
     );
   });
   it('should show the blog posts when the data is fetched', async () => {
     makeRequest.mockResolvedValue([mockData]);
-    render(<Cards />);
+    render(<BlogPostProvider><Cards /></BlogPostProvider>);
     await waitFor(() =>
-      expect(screen.getAllByText('mock title 2')).toBeTruthy()
+      expect(screen.getByText('mock title 2')).toBeTruthy()
     );
   });
   it('should show all the blog posts when the data is fetched', async () => {
     makeRequest.mockResolvedValue([mockData]);
-    render(<Cards />);
+    render(<BlogPostProvider><Cards /></BlogPostProvider>);
     await waitFor(() =>
       expect(screen.getAllByTestId('blog')).toHaveLength([mockData].length)
     );
   });
   it('should show error when there is error in data fetching', async () => {
     makeRequest.mockRejectedValue({ message: 'Error' });
-    render(<Cards />);
+    render(<BlogPostProvider><Cards /></BlogPostProvider>);
     await waitFor(() =>
       expect(screen.getAllByText('Error')).toBeTruthy()
     );
@@ -106,7 +107,7 @@ describe('Card Component', () => {
 describe('Snapshot', () => {
   it('should render card list correctly', async () => {
     makeRequest.mockResolvedValue([mockData]);
-    const { asFragment } = render(<Cards />);
+    const { asFragment } = render(<BlogPostProvider><Cards /></BlogPostProvider>);
     await waitFor(() =>
       expect(asFragment()).toMatchSnapshot()
     );
