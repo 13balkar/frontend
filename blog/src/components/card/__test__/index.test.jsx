@@ -1,7 +1,7 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import * as React from 'react';
 import Cards from '..';
-import { BlogPostProvider } from '../../../contexts/blogPostContext';
+import { BlogPostContext, BlogPostProvider } from '../../../contexts/blogPostContext';
 import { makeRequest } from '../../../utils';
 import Card from '../card';
 import Reaction from '../reactions';
@@ -25,10 +25,16 @@ const mockData = {
 describe('Data Fetching', () => {
   it('should show loading when the data is being fetched', async () => {
     makeRequest.mockResolvedValue([mockData]);
-    render(<BlogPostProvider><Cards /></BlogPostProvider>);
-    await waitFor(() =>
-      expect(screen.getByText('Loading')).toBeTruthy()
+    render(
+      <BlogPostContext.Provider value={{ blogs: null, setBlogs: jest.fn(), error: null, setError: jest.fn() }}>
+        <Cards />
+      </BlogPostContext.Provider>
     );
+    await waitFor(() => {
+      const loadingTitle = screen.getByText('Loading');
+      console.log(loadingTitle);
+      expect(screen.getByText('Loading')).toBeTruthy();
+    });
   });
   it('should show the blog posts when the data is fetched', async () => {
     makeRequest.mockResolvedValue([mockData]);

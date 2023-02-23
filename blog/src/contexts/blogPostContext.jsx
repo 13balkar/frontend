@@ -15,7 +15,7 @@ export const BlogPostProvider = ({ children }) => {
 };
 
 export const ReactionProvider = ({ children }) => {
-  const [count, setCount] = React.useState();
+  const [count, setCount] = React.useState(0);
   const [like, setLike] = React.useState();
   return (
     <ReactionContext.Provider value={{ count, setCount, like, setLike }}>

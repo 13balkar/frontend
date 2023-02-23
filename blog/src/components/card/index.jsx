@@ -5,8 +5,7 @@ import { BlogPostContext } from '../../contexts/blogPostContext';
 import { makeRequest } from '../../utils';
 import Card from './card';
 const Cards = () => {
-  const { blogs, setBlogs } = React.useContext(BlogPostContext);
-  const { error, setError } = React.useContext(BlogPostContext);
+  const { blogs, setBlogs, error, setError } = React.useContext(BlogPostContext);
   const navigate = useNavigate();
   React.useEffect(() => {
     makeRequest(GET_BLOG_POSTS, {}, navigate)
