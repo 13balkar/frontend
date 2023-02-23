@@ -6,6 +6,10 @@ import Card from '../card';
 import Reaction from '../reactions';
 jest.mock('../../../utils/makeRequest');
 
+jest.mock('react-router-dom', () => ({
+  useNavigate: () => jest.fn()
+}));
+
 const mockData = {
   id: 2,
   date: '6/29/2022 4:52:48 PM UTC',
@@ -27,7 +31,6 @@ describe('Data Fetching', () => {
   });
   it('should show the blog posts when the data is fetched', async () => {
     makeRequest.mockResolvedValue([mockData]);
-
     render(<Cards />);
     await waitFor(() =>
       expect(screen.getAllByText('mock title 2')).toBeTruthy()
@@ -82,7 +85,7 @@ describe('Card Component', () => {
   });
   it('should call the increment claps function when clicked on clap icon', async () => {
     const clapping = jest.fn();
-    const { getByText } = render(<Reaction count={mockData.claps} clapping={clapping} liked={mockData.liked} liker={jest.fn()} />);
+    const { getByText } = render(<Reaction count={mockData.claps} clapping={ clapping } liked={mockData.liked} liker={jest.fn()} />);
     const clapIcon = getByText(mockData.claps).parentElement.querySelector('img');
     await waitFor(() => {
       fireEvent.click(clapIcon);

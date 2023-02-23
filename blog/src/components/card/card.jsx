@@ -1,5 +1,6 @@
 import { PropTypes } from 'prop-types';
 import * as React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { UPDATE_BLOG_POST } from '../../constants/apiEndPoints';
 import { makeRequest } from '../../utils';
 import './card.css';
@@ -10,9 +11,10 @@ import Reaction from './reactions';
 export default function Card ({ post }) {
   const [count, setCount] = React.useState(post.claps);
   const [like, setLike] = React.useState(post.liked);
+  const navigate = useNavigate();
 
   React.useEffect(() => {
-    makeRequest(UPDATE_BLOG_POST(post.id), { data: { claps: count, liked: like } });
+    makeRequest(UPDATE_BLOG_POST(post.id), { data: { claps: count, liked: like } }, navigate);
   }, [count, like]);
 
   const clapping = () => {
