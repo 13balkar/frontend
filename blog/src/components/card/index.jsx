@@ -1,18 +1,21 @@
 import * as React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { GET_BLOG_POSTS } from '../../constants/apiEndPoints';
+import { BlogPostContext } from '../../contexts/blogPostContext';
 import { makeRequest } from '../../utils';
 import Card from './card';
-
 const Cards = () => {
-  const [blogs, setBlogs] = React.useState();
-  const [error, setError] = React.useState();
+  const { blogs, setBlogs, error, setError } = React.useContext(BlogPostContext);
+  const navigate = useNavigate();
   React.useEffect(() => {
-    makeRequest(GET_BLOG_POSTS)
+    makeRequest(GET_BLOG_POSTS, {}, navigate)
       .then(response => {
         response.sort((a, b) => a.claps < b.claps ? 1 : -1);
         setBlogs(response);
       })
-      .catch(err => setError(err));
+      .catch(err => {
+        setError(err);
+      });
   }, []);
   if (error) { return <h1>Error</h1>; }
   return blogs

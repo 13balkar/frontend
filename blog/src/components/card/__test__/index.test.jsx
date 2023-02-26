@@ -1,10 +1,15 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import * as React from 'react';
 import Cards from '..';
+import { BlogPostContext, BlogPostProvider } from '../../../contexts/blogPostContext';
 import { makeRequest } from '../../../utils';
 import Card from '../card';
 import Reaction from '../reactions';
 jest.mock('../../../utils/makeRequest');
+
+jest.mock('react-router-dom', () => ({
+  useNavigate: () => jest.fn()
+}));
 
 const mockData = {
   id: 2,
@@ -20,29 +25,34 @@ const mockData = {
 describe('Data Fetching', () => {
   it('should show loading when the data is being fetched', async () => {
     makeRequest.mockResolvedValue([mockData]);
-    render(<Cards />);
-    await waitFor(() =>
-      expect(screen.getByText('Loading')).toBeTruthy()
+    render(
+      <BlogPostContext.Provider value={{ blogs: null, setBlogs: jest.fn(), error: null, setError: jest.fn() }}>
+        <Cards />
+      </BlogPostContext.Provider>
     );
+    await waitFor(() => {
+      const loadingTitle = screen.getByText('Loading');
+      console.log(loadingTitle);
+      expect(screen.getByText('Loading')).toBeTruthy();
+    });
   });
   it('should show the blog posts when the data is fetched', async () => {
     makeRequest.mockResolvedValue([mockData]);
-
-    render(<Cards />);
+    render(<BlogPostProvider><Cards /></BlogPostProvider>);
     await waitFor(() =>
-      expect(screen.getAllByText('mock title 2')).toBeTruthy()
+      expect(screen.getByText('mock title 2')).toBeTruthy()
     );
   });
   it('should show all the blog posts when the data is fetched', async () => {
     makeRequest.mockResolvedValue([mockData]);
-    render(<Cards />);
+    render(<BlogPostProvider><Cards /></BlogPostProvider>);
     await waitFor(() =>
       expect(screen.getAllByTestId('blog')).toHaveLength([mockData].length)
     );
   });
   it('should show error when there is error in data fetching', async () => {
     makeRequest.mockRejectedValue({ message: 'Error' });
-    render(<Cards />);
+    render(<BlogPostProvider><Cards /></BlogPostProvider>);
     await waitFor(() =>
       expect(screen.getAllByText('Error')).toBeTruthy()
     );
@@ -82,7 +92,7 @@ describe('Card Component', () => {
   });
   it('should call the increment claps function when clicked on clap icon', async () => {
     const clapping = jest.fn();
-    const { getByText } = render(<Reaction count={mockData.claps} clapping={clapping} liked={mockData.liked} liker={jest.fn()} />);
+    const { getByText } = render(<Reaction count={mockData.claps} clapping={ clapping } liked={mockData.liked} liker={jest.fn()} />);
     const clapIcon = getByText(mockData.claps).parentElement.querySelector('img');
     await waitFor(() => {
       fireEvent.click(clapIcon);
@@ -103,7 +113,7 @@ describe('Card Component', () => {
 describe('Snapshot', () => {
   it('should render card list correctly', async () => {
     makeRequest.mockResolvedValue([mockData]);
-    const { asFragment } = render(<Cards />);
+    const { asFragment } = render(<BlogPostProvider><Cards /></BlogPostProvider>);
     await waitFor(() =>
       expect(asFragment()).toMatchSnapshot()
     );

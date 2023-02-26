@@ -1,0 +1,46 @@
+.tasks{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 90%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.task-name{
+    width: 80%;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    display: flex;  
+    justify-content: center;   
+}
+
+.task-name>h2{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.task-button{
+    width: 20%;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    background-color: #ccc;
+    border: none;
+    cursor: pointer;
+    display: flex;  
+    justify-content: center;
+}

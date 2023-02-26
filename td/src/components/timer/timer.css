@@ -1,0 +1,20 @@
+.timer{
+    color: #000;
+    background-color: azure;
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    line-height: 1.5;
+    padding: 0 1rem;
+    border: 1px solid #000;
+    border-radius: 0.6rem;
+    margin: 1rem;
+    animation: color-change 1s infinite;
+
+}
+
+
+
+
