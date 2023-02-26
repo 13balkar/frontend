@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Image should render Image correctly 1`] = `
+<DocumentFragment>
+  <img
+    alt="img"
+    class="img"
+    src="imgsrc"
+  />
+</DocumentFragment>
+`;

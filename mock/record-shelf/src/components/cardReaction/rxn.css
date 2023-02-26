@@ -1,0 +1,11 @@
+.card-rxn{
+    padding-top:10px;
+    position: relative;
+}
+.card-rxn>p{
+    position: absolute;
+    top: 18px;
+    bottom: 22px;
+    left: 16px;
+    right: 15px;
+}

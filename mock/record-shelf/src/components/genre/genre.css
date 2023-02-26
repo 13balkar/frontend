@@ -1,0 +1,37 @@
+.heading{
+    display: flex;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.heading .name{
+    display: flex;
+    align-items: center;
+    transform: translateX(-35%);
+}
+.heading h1{
+    color: white;
+    background-color: #4c63aa;
+    width: 200px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+
+}
+
+
+@media only screen and (max-width: 600px) {
+    .cardBlock{
+        background-color: white;
+        width: 88%;
+    }
+    .cardList{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .genre{
+        width: 100%;
+    }
+}

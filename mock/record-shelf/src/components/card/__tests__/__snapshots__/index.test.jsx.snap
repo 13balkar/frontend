@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card should render Card correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="card"
+  >
+    <img
+      alt="img"
+      class="img"
+      src="https://i.scdn.co/image/ab67616d0000b27386a8ab515de4b7aef28cd631"
+    />
+    <div
+      class="text"
+    >
+      <div
+        class="card-desc"
+      >
+        <p
+          class="song"
+        >
+          Lost
+        </p>
+        <p
+          class="singer"
+        >
+          Maroon 5
+        </p>
+      </div>
+      <div>
+        loading
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
