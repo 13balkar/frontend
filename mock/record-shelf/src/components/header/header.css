@@ -1,0 +1,11 @@
+.header{
+    background-color: #38497e;
+    color: #fff;
+    font-size: 2rem;
+    display: flex;
+}
+
+.header>p{
+    padding: 10px;
+    font-weight: lighter;
+}

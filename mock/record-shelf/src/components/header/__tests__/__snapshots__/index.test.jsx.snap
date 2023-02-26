@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="header"
+  >
+    <p>
+      My 
+      <b>
+        Record
+      </b>
+       Shelf
+    </p>
+  </div>
+</DocumentFragment>
+`;

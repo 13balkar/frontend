@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sync Page should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="syncPage"
+  >
+    <div
+      class="header"
+    >
+      <p>
+        My 
+        <b>
+          Record
+        </b>
+         Shelf
+      </p>
+    </div>
+    <div
+      class="cardBlock"
+    >
+      <p>
+        <b>
+          all songs
+        </b>
+         
+        <img
+          alt="genre"
+          src="/assets/icon-genre.svg"
+        />
+      </p>
+      <div
+        class="cardList"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
