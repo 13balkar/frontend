@@ -6,7 +6,7 @@ export default function Task ({ tasks, handleDelete, changeStatus }) {
     <div className='tasks'>
       {tasks.map((task) => (
         <div key={task.id} className="container">
-          <div onClick={() => changeStatus(task.id)} style = { task.isComplete === true ? { 'text-decoration': 'none' } : { 'text-decoration': 'line-through' }} id={task.id} className="task-name">
+          <div onClick={() => changeStatus(task.id)} style = { task.isComplete === true ? { textDecoration: 'line-through' } : { textDecoration: 'none' }} id={task.id} className="task-name">
             <h2 >{task.taskName}</h2>
           </div>
           <div className="task-button">
