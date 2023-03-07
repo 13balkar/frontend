@@ -34,6 +34,8 @@ const login = async (dynamicConfig, navigate) => {
     navigate('/todo');
     // return data;
   } catch (error) {
+    localStorage.removeItem('token');
+    localStorage.removeItem('username');
     if (navigate) {
       const errorStatus = error.response?.status;
       if (errorStatus) {
