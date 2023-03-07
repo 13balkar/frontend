@@ -4,31 +4,38 @@ import { login, register } from '../../utils/loginRequest';
 const LoginPage = () => {
   const [userName, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
+  const [response, setResponse] = React.useState(false);
   const navigate = useNavigate();
 
   const handleName = (e) => {
+    setResponse(false);
     setUsername(e.target.value);
   };
   const handlePassword = (e) => {
+    setResponse(false);
     setPassword(e.target.value);
   };
 
   const loginFunc = async () => {
-    await login({ data: { userName, password } }, navigate);
-    // localStorage.setItem('token', token.token);
-    // localStorage.setItem('username', userName);
+    const res = await login({ data: { userName, password } }, navigate);
+    if (res === 'success') {
+      navigate('/todo');
+    } else {
+      setResponse(true);
+    }
     setUsername('');
     setPassword('');
-    // console.log(token);
-    // navigate('/todo');
   };
   const registerFunc = async () => {
     await register({ data: { userName, password } }, navigate);
     setUsername('');
     setPassword('');
-    // console.log(user);
   };
-
+  const wrong = (
+    <div>
+      <h1>Wrong Credentials</h1>
+    </div>
+  );
   return (
     <div>
         <label>Username</label>
@@ -37,6 +44,7 @@ const LoginPage = () => {
         <input type="text" value={password} onChange={handlePassword}/>
         <button onClick={loginFunc}>Login</button>
         <button onClick={registerFunc}>Register</button>
+        {response ? wrong : null}
     </div>
   );
 };

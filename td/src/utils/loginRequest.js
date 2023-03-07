@@ -30,20 +30,21 @@ const login = async (dynamicConfig, navigate) => {
     };
     const { data } = await axios(requestConfig);
     localStorage.setItem('token', data.token);
-    localStorage.setItem('username', dynamicConfig.data.userName);
+    // localStorage.setItem('username', dynamicConfig.data.userName);
     navigate('/todo');
-    // return data;
+    return 'success';
   } catch (error) {
     localStorage.removeItem('token');
     localStorage.removeItem('username');
-    if (navigate) {
-      const errorStatus = error.response?.status;
-      if (errorStatus) {
-        navigate(`/error/${errorStatus}`);
-      } else {
-        navigate('/error');
-      }
-    }
+    // if (navigate) {
+    //   const errorStatus = error.response?.status;
+    //   if (errorStatus) {
+    //     navigate(`/error/${errorStatus}`);
+    //   } else {
+    //     navigate('/error');
+    //   }
+    // }
+    return 'error';
   }
 };
 

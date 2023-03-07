@@ -13,7 +13,7 @@ export default function Todo () {
   React.useEffect(() => {
     if (localStorage.getItem('token') !== null) {
       setIsLoggedIn(true);
-      makeRequest(GET_TASKS, { headers: { token: localStorage.getItem('token'), username: localStorage.getItem('username') } }, navigate)
+      makeRequest(GET_TASKS, { headers: { token: localStorage.getItem('token') } }, navigate)
         .then(response => {
           setTasks(response);
         });
@@ -23,41 +23,34 @@ export default function Todo () {
   const handleSubmit = async (task) => {
     // console.log(task);
     if (task === '') return;
-    await makeRequest(CREATE_TASK, { data: { taskName: task }, headers: { token: localStorage.getItem('token'), username: localStorage.getItem('username') } }, navigate);
-    await makeRequest(GET_TASKS, { headers: { token: localStorage.getItem('token'), username: localStorage.getItem('username') } }, navigate)
+    await makeRequest(CREATE_TASK, { data: { taskName: task }, headers: { token: localStorage.getItem('token') } }, navigate);
+    await makeRequest(GET_TASKS, { headers: { token: localStorage.getItem('token') } }, navigate)
       .then(response => {
         setTasks(response);
       });
   };
   const handleDelete = async (index) => {
-    await makeRequest(DELETE_TASK(index), { headers: { token: localStorage.getItem('token'), username: localStorage.getItem('username') } }, navigate);
-    await makeRequest(GET_TASKS, { headers: { token: localStorage.getItem('token'), username: localStorage.getItem('username') } }, navigate)
+    await makeRequest(DELETE_TASK(index), { headers: { token: localStorage.getItem('token') } }, navigate);
+    await makeRequest(GET_TASKS, { headers: { token: localStorage.getItem('token') } }, navigate)
       .then(response => {
         setTasks(response);
       });
   };
   const checkStatus = async (id) => {
-    await makeRequest(UPDATE_TASK(id), { headers: { token: localStorage.getItem('token'), username: localStorage.getItem('username') } }, navigate);
-    await makeRequest(GET_TASKS, { headers: { token: localStorage.getItem('token'), username: localStorage.getItem('username') } }, navigate)
+    await makeRequest(UPDATE_TASK(id), { headers: { token: localStorage.getItem('token') } }, navigate);
+    await makeRequest(GET_TASKS, { headers: { token: localStorage.getItem('token') } }, navigate)
       .then(response => {
         setTasks(response);
       });
   };
   return (
     isloggedIn
-      ? localStorage.getItem('username') === 'ishit1234'
-        ? (
-          <div className='body'>
+      ? <div className='body'>
               <Timer />
               <Input handleSubmit={handleSubmit} />
               <Task tasks={tasks} handleDelete={handleDelete} changeStatus={checkStatus} />
           </div>
-          )
-        : (
-            <div className='body'>
-              <h1>Page corrosponding to {localStorage.getItem('username')}</h1>
-            </div>
-          )
+
       : (
         <div className='body'>
             <h1>Not Logged In</h1>

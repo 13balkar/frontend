@@ -7,6 +7,7 @@ const App = () => {
   return (
     <BrowserRouter>
     <Routes>
+
     <Route path='/' element={<LoginPage />} />
     <Route path='/todo' element={<HomePage />} />
     <Route path='/error/:errorCode' element={<Error />} />
