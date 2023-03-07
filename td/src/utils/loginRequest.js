@@ -21,7 +21,7 @@ const register = async (dynamicConfig, navigate) => {
   }
 };
 const login = async (dynamicConfig, navigate) => {
-  console.log('dynamicConfig', dynamicConfig);
+  // console.log('dynamicConfig', dynamicConfig);
   try {
     const requestConfig = {
       url: 'http://localhost:4000/user/login',

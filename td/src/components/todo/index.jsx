@@ -45,13 +45,19 @@ export default function Todo () {
   };
   return (
     isloggedIn
-      ? (
-        <div className='body'>
-            <Timer />
-            <Input handleSubmit={handleSubmit} />
-            <Task tasks={tasks} handleDelete={handleDelete} changeStatus={checkStatus} />
-        </div>
-        )
+      ? localStorage.getItem('username') === 'ishit1234'
+        ? (
+          <div className='body'>
+              <Timer />
+              <Input handleSubmit={handleSubmit} />
+              <Task tasks={tasks} handleDelete={handleDelete} changeStatus={checkStatus} />
+          </div>
+          )
+        : (
+            <div className='body'>
+              <h1>Page corrosponding to {localStorage.getItem('username')}</h1>
+            </div>
+          )
       : (
         <div className='body'>
             <h1>Not Logged In</h1>
