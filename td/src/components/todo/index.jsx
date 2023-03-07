@@ -8,11 +8,9 @@ import Timer from '../timer';
 import './todo.css';
 export default function Todo () {
   const [tasks, setTasks] = React.useState([]);
-  const [isloggedIn, setIsLoggedIn] = React.useState(false);
   const navigate = useNavigate();
   React.useEffect(() => {
     if (localStorage.getItem('token') !== null) {
-      setIsLoggedIn(true);
       makeRequest(GET_TASKS, { headers: { token: localStorage.getItem('token') } }, navigate)
         .then(response => {
           setTasks(response);
@@ -44,17 +42,10 @@ export default function Todo () {
       });
   };
   return (
-    isloggedIn
-      ? <div className='body'>
+      <div className='body'>
               <Timer />
               <Input handleSubmit={handleSubmit} />
               <Task tasks={tasks} handleDelete={handleDelete} changeStatus={checkStatus} />
-          </div>
-
-      : (
-        <div className='body'>
-            <h1>Not Logged In</h1>
-        </div>
-        )
+      </div>
   );
 }
