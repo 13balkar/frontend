@@ -8,12 +8,15 @@ const ProtectedRoutes = ({ children }) => {
     const value = localStorage.getItem('token');
     axios.post('http://localhost:4000/token/validate', {}, { headers: { token: value } })
       .then(response => {
-        setToken(response.data);
+        // console.log(response.data.userName);
+        setToken(response.data.userName);
       });
   }, []);
   return token === null
     ? <h1>Not Logged In Bro</h1>
-    : children;
+    : token === 'ishit1234'
+      ? children
+      : <h1>You are not ishit bro</h1>;
 };
 
 ProtectedRoutes.propTypes = {

@@ -31,7 +31,7 @@ const login = async (dynamicConfig, navigate) => {
     const { data } = await axios(requestConfig);
     localStorage.setItem('token', data.token);
     // localStorage.setItem('username', dynamicConfig.data.userName);
-    navigate('/todo');
+    // navigate('/todo');
     return 'success';
   } catch (error) {
     localStorage.removeItem('token');
